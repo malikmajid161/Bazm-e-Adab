@@ -206,6 +206,12 @@ const PoetryMarquee = () => {
                 }
                 .animate-marquee         { animation: marquee         40s linear infinite; }
                 .animate-marquee-reverse { animation: marquee-reverse 40s linear infinite; }
+
+                @media (max-width: 768px) {
+                    .animate-marquee, .animate-marquee-reverse {
+                        animation-duration: 20s;
+                    }
+                }
             `}</style>
         </section>
     )
