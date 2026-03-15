@@ -6,7 +6,6 @@ const Events = ({ data }) => (
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">The Literary Calendar</h2>
-                <p className="text-lg text-slate-500 max-w-2xl mx-auto">Join our prestigious gatherings and leave your mark on the campus stage.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
@@ -17,9 +16,9 @@ const Events = ({ data }) => (
                         whileInView={{ opacity: 1, y: 0 }}
                         whileHover={{ y: -10 }}
                         viewport={{ once: true }}
-                        className="glass-card !text-left flex flex-col justify-between transition-shadow duration-500 hover:shadow-2xl hover:shadow-gold/5"
+                        className="glass-card !text-left flex flex-col justify-between transition-shadow duration-500 hover:shadow-2xl hover:shadow-gold/5 h-full"
                     >
-                        <div>
+                        <div className="flex-grow">
                             <span className="text-gold font-bold text-xs tracking-[3px] mb-4 block uppercase">{ev.sub}</span>
                             <h3 className="text-3xl font-playfair font-bold text-slate-800 mb-6">{ev.title}</h3>
                             <p className="text-slate-500 mb-8 leading-relaxed">{ev.desc}</p>
@@ -32,7 +31,7 @@ const Events = ({ data }) => (
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             href="#join"
-                            className="btn-primary w-full text-center no-underline border-none"
+                            className="btn-primary w-full text-center no-underline border-none mt-auto"
                         >
                             Register Seat
                         </motion.a>

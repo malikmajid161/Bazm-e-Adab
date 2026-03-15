@@ -10,7 +10,7 @@ const JoinUs = ({ onSubmit, isSubmitting }) => (
         >
             <div className="urdu absolute -bottom-10 -left-10 text-[12rem] opacity-[0.02] pointer-events-none select-none">بزم</div>
             <div className="text-center mb-12 relative z-10">
-                <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">Join the Society</h2>
+                <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">Society Membership</h2>
                 <p className="text-lg text-slate-500">Step into a world where your creativity is celebrated.</p>
             </div>
 

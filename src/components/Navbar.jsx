@@ -17,20 +17,18 @@ const Navbar = ({ onSearchClick }) => {
         { name: 'Our Vision', href: '#about' },
         { name: 'Library', href: '#library' },
         { name: 'Offerings', href: '#services' },
-        { name: 'Gatherings', href: '#events' },
         { name: 'Leadership', href: '#team' },
     ]
 
     return (
         <nav className={`fixed top-0 w-full z-[1000] px-6 py-4 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-md py-2' : 'bg-transparent'}`}>
             <div className="max-w-7xl mx-auto flex justify-between items-center">
-                <div className="flex items-center gap-12">
-                    <a href="#home" className="flex items-center gap-4 no-underline group border-none">
-                        <span className="urdu text-3xl text-gold group-hover:scale-110 transition-all duration-300 pt-1.5 flex items-center justify-center">بزمِ ادب</span>
-                        <span className="font-playfair text-xl font-bold tracking-tight text-slate-800 uppercase no-underline">BAZM-E-<span className="italic text-gold">ADAB</span></span>
+                <div className="flex items-center gap-12 w-full lg:w-auto">
+                    <a href="#home" className="flex items-center gap-3 no-underline group border-none">
+                        <span className="urdu text-4xl md:text-5xl text-gold group-hover:scale-110 transition-all duration-300 flex items-center justify-center leading-none mt-2">بزمِ ادب</span>
                     </a>
 
-                    <div className="hidden lg:flex items-center gap-8">
+                    <div className="hidden lg:flex items-center gap-8 self-center pt-2">
                         {navLinks.map((link) => (
                             <a key={link.name} href={link.href} className="text-slate-600 font-medium text-[13px] uppercase tracking-wider hover:text-gold transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-gold after:transition-all hover:after:w-full no-underline">
                                 {link.name}
@@ -39,15 +37,13 @@ const Navbar = ({ onSearchClick }) => {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-6 self-center pt-2">
                     <button
                         onClick={onSearchClick}
                         className="p-3 rounded-2xl bg-slate-50 text-slate-400 hover:bg-gold hover:text-white transition-all duration-500 hover:shadow-lg hover:shadow-gold/20"
                     >
                         <Search size={22} />
                     </button>
-
-                    <a href="#join" className="hidden md:block btn-primary !px-8 !py-3 no-underline shadow-none hover:shadow-gold/30">Join Us</a>
 
                     <button className="md:hidden text-slate-800 outline-none" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -57,13 +53,12 @@ const Navbar = ({ onSearchClick }) => {
 
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="absolute top-full left-0 w-full bg-white shadow-2xl p-8 flex flex-col gap-6 md:hidden">
+                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="absolute top-full left-0 w-full bg-white shadow-2xl p-6 flex flex-col gap-4 md:hidden border-t border-slate-100">
                         {navLinks.map((link) => (
-                            <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-serif text-slate-800 hover:text-gold transition-colors no-underline">
+                            <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-serif text-slate-800 hover:text-gold transition-colors no-underline px-4 py-2 rounded-xl hover:bg-slate-50">
                                 {link.name}
                             </a>
                         ))}
-                        <a href="#join" onClick={() => setIsMobileMenuOpen(false)} className="btn-primary w-full text-center no-underline">Join Us</a>
                     </motion.div>
                 )}
             </AnimatePresence>

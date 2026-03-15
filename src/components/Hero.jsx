@@ -55,7 +55,7 @@ const Hero = () => {
 
                     <motion.h1
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-playfair font-bold text-slate-800 leading-[0.9] mb-12 flex flex-col items-center gap-6"
+                        className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-playfair font-bold text-slate-800 leading-[0.9] mb-12 flex flex-col items-center gap-6"
                     >
                         <span className="block">Bazm-e-Adab</span>
                         <span className="urdu text-[0.45em] font-normal text-gold whitespace-nowrap opacity-90">
@@ -68,7 +68,6 @@ const Hero = () => {
                         className="text-xl sm:text-2xl md:text-3xl text-slate-600 font-light mb-16 max-w-4xl mx-auto leading-relaxed"
                     >
                         A sanctuary where Urdu literature breathes through modern intellect.<br className="hidden md:block" />
-                        <span className="text-gold font-medium mt-4 block">Poetry • Prose • Events • Mentorship</span>
                     </motion.p>
 
                     <motion.div
@@ -82,14 +81,6 @@ const Hero = () => {
                             className="btn-primary no-underline text-center !py-6 !px-16 text-xl shadow-2xl shadow-gold/20"
                         >
                             Start Your Journey
-                        </motion.a>
-                        <motion.a
-                            whileHover={{ scale: 1.05, y: -4 }}
-                            whileTap={{ scale: 0.95 }}
-                            href="#join"
-                            className="btn-outline no-underline shadow-none hover:shadow-gold/10 text-center !py-6 !px-16 text-xl"
-                        >
-                            Join Our Gatherings
                         </motion.a>
                     </motion.div>
                 </motion.div>

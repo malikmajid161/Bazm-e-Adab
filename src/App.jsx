@@ -8,13 +8,13 @@ import About from './components/About'
 import ServiceCard from './components/ServiceCard'
 import Events from './components/Events'
 import TeamCard from './components/TeamCard'
-import JoinUs from './components/JoinUs'
 import Footer from './components/Footer'
 import Toast from './components/Toast'
-import Stats from './components/Stats'
+import PoetryMarquee from './components/PoetryMarquee'
 import LiteratureShowcase from './components/LiteratureShowcase'
 import Library from './components/Library'
 import SearchOverlay from './components/SearchOverlay'
+import JoinUs from './components/JoinUs'
 
 // --- Hooks ---
 import useCarousel from './hooks/useCarousel'
@@ -35,7 +35,6 @@ const App = () => {
     const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
 
     const [toast, setToast] = useState(null)
-    const [isSubmitting, setIsSubmitting] = useState(false)
     const [isTeamLoading, setIsTeamLoading] = useState(true)
     const [isSearchOpen, setIsSearchOpen] = useState(false)
     const [showBackToTop, setShowBackToTop] = useState(false)
@@ -63,44 +62,6 @@ const App = () => {
         setTimeout(() => setToast(null), 5000)
     }, [])
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        setIsSubmitting(true)
-
-        const formData = new FormData(e.target)
-        const payload = Object.fromEntries(formData.entries())
-        payload.created_at = new Date().toISOString()
-
-        try {
-            if (SB_URL.includes("YOUR_PROJECT_ID")) {
-                console.log("Demo Sub:", payload)
-                await new Promise(r => setTimeout(r, 1500))
-                showMessage("Application Sent! Our cabinet will contact you shortly.")
-                e.target.reset()
-            } else {
-                const res = await fetch(`${SB_URL}/rest/v1/registrations`, {
-                    method: 'POST',
-                    headers: {
-                        'apikey': SB_KEY,
-                        'Authorization': `Bearer ${SB_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify(payload)
-                })
-                if (res.ok) {
-                    showMessage("Welcome to Bazm-e-Adab! Submission successful.")
-                    e.target.reset()
-                } else {
-                    showMessage("Server refused submission. Check Supabase config.", "error")
-                }
-            }
-        } catch (err) {
-            showMessage("Connection failed. Check your network.", "error")
-        } finally {
-            setIsSubmitting(false)
-        }
-    }
 
     const toggleSearch = useCallback(() => setIsSearchOpen(prev => !prev), [])
 
@@ -149,7 +110,7 @@ const App = () => {
             <main className="relative z-10">
                 <Hero />
                 <About data={societyData.vision} />
-                <Stats stats={societyData.stats} />
+                <PoetryMarquee />
 
                 <LiteratureShowcase items={societyData.literature} />
 
@@ -193,11 +154,11 @@ const App = () => {
                 <section id="team" className="py-28 px-6 bg-transparent">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
-                            <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">The Core Cabinet</h2>
+                            <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">Our Team</h2>
                             <p className="text-lg text-slate-500 max-w-2xl mx-auto">The architects driving the literary revolution at COMSATS.</p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-y-20 gap-x-16 max-w-6xl mx-auto px-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-7xl mx-auto px-4">
                             {societyData.team.map((member, idx) => (
                                 <TeamCard key={idx} {...member} isLoading={isTeamLoading} />
                             ))}
@@ -205,7 +166,8 @@ const App = () => {
                     </div>
                 </section>
 
-                <JoinUs onSubmit={handleSubmit} isSubmitting={isSubmitting} />
+                <JoinUs />
+
             </main>
 
             <button
