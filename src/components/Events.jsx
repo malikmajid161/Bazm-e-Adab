@@ -27,14 +27,12 @@ const Events = ({ data }) => (
                                 <div className="flex gap-2">📍 {ev.loc}</div>
                             </div>
                         </div>
-                        <motion.a
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            href="#join"
-                            className="btn-primary w-full text-center no-underline border-none mt-auto"
+                        <button
+                            disabled
+                            className="btn-primary w-full text-center no-underline border-none mt-auto opacity-60 cursor-not-allowed hover:bg-brand hover:translate-y-0 shadow-none pointer-events-none"
                         >
-                            Register Seat
-                        </motion.a>
+                            Applications Opening Soon
+                        </button>
                     </motion.div>
                 ))}
             </div>
