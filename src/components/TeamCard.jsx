@@ -47,6 +47,8 @@ const TeamCard = memo(({ name, role, image, color, delay, isFemale }) => (
                                 : 'https://avatar.iran.liara.run/public/boy')
                     }
                     alt={name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                 />
             </div>

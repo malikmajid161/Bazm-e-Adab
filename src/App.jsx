@@ -59,7 +59,7 @@ const App = () => {
         <Router>
             <div className="relative selection:bg-brand selection:text-white bg-white overflow-x-hidden">
                 {/* Background Decorations */}
-                <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+                <div className="fixed inset-0 pointer-events-none overflow-hidden z-0 hidden md:block">
                     <motion.div
                         animate={{
                             x: [0, 150, 0],
