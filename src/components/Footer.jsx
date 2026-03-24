@@ -18,17 +18,17 @@ const Footer = ({ socialLinks }) => {
                         href={link || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-500 hover:bg-gold hover:text-white hover:-translate-y-2 hover:shadow-xl hover:shadow-gold/20 transition-all duration-300 border border-slate-100 no-underline"
+                        className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-500 hover:bg-brand hover:text-white hover:-translate-y-2 hover:shadow-xl hover:shadow-brand/20 transition-all duration-300 border border-slate-100 no-underline"
                     >
                         <Icon size={24} />
                     </a>
                 ))}
             </div>
-            <div className="font-playfair text-2xl font-bold mb-4 uppercase tracking-tighter">BAZM-E-<span className="text-gold italic">ADAB</span></div>
+            <div className="font-serif text-2xl font-bold mb-4 uppercase tracking-tighter">BAZM-E-<span className="text-brand italic">ADAB</span></div>
             <p className="text-slate-400 font-medium">&copy; 2026 COMSATS Literary Society. Reviving Art, Honoring Traditions.</p>
             <button className="mt-16 group flex flex-col items-center gap-2 mx-auto outline-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <span className="text-gold font-bold tracking-widest text-[10px]">BACK TO TOP</span>
-                <ChevronUp className="text-gold group-hover:-translate-y-2 transition-transform duration-300" />
+                <span className="text-brand font-bold tracking-widest text-[10px]">BACK TO TOP</span>
+                <ChevronUp className="text-brand group-hover:-translate-y-2 transition-transform duration-300" />
             </button>
         </footer>
     )

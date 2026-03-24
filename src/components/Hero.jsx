@@ -11,14 +11,26 @@ const Hero = () => {
                         animate={{ pathLength: 1, opacity: 1 }}
                         transition={{ duration: 3, ease: "easeInOut" }}
                         d="M0 400C100 350 200 450 300 400C400 350 500 450 600 400C700 350 800 450 800 400"
-                        stroke="#c5a059"
+                        stroke="#1E293B"
                         strokeWidth="0.5"
                     />
-                    <circle cx="10%" cy="20%" r="200" fill="url(#hero-grad)" fillOpacity="0.5" />
-                    <circle cx="90%" cy="80%" r="300" fill="url(#hero-grad)" fillOpacity="0.5" />
+                    <motion.path
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 0.5 }}
+                        transition={{ duration: 4, delay: 1, ease: "easeInOut" }}
+                        d="M0 450C150 400 250 500 400 450C550 400 650 500 800 450"
+                        stroke="#BE123C"
+                        strokeWidth="0.5"
+                    />
+                    <circle cx="10%" cy="20%" r="200" fill="url(#hero-grad-1)" fillOpacity="0.3" />
+                    <circle cx="90%" cy="80%" r="300" fill="url(#hero-grad-2)" fillOpacity="0.3" />
                     <defs>
-                        <radialGradient id="hero-grad" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stopColor="#c5a059" stopOpacity="1" />
+                        <radialGradient id="hero-grad-1" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#1E293B" stopOpacity="1" />
+                            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+                        </radialGradient>
+                        <radialGradient id="hero-grad-2" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#BE123C" stopOpacity="1" />
                             <stop offset="100%" stopColor="transparent" stopOpacity="0" />
                         </radialGradient>
                     </defs>
@@ -48,24 +60,24 @@ const Hero = () => {
                 >
                     <motion.span
                         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-                        className="text-gold uppercase tracking-[6px] font-bold text-xs md:text-sm mb-8 block"
+                        className="text-brand uppercase tracking-[6px] font-bold text-xs md:text-sm mb-8 block"
                     >
                         COMSATS Official Literary Society
                     </motion.span>
 
                     <motion.h1
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-playfair font-bold text-slate-800 leading-[0.9] mb-12 flex flex-col items-center gap-6"
+                        className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-slate-900 leading-[1.1] mb-10 flex flex-col items-center gap-4 tracking-tight"
                     >
                         <span className="block">Bazm-e-Adab</span>
-                        <span className="urdu text-[0.45em] font-normal text-gold whitespace-nowrap opacity-90">
+                        <span className="urdu text-[0.45em] font-normal text-brand whitespace-nowrap opacity-90">
                             (بزمِ ادب)
                         </span>
                     </motion.h1>
 
                     <motion.p
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="text-xl sm:text-2xl md:text-3xl text-slate-600 font-light mb-16 max-w-4xl mx-auto leading-relaxed"
+                        className="text-base sm:text-lg md:text-2xl text-slate-500 font-normal mb-14 max-w-3xl mx-auto leading-relaxed px-4"
                     >
                         A sanctuary where Urdu literature breathes through modern intellect.<br className="hidden md:block" />
                     </motion.p>
@@ -77,8 +89,8 @@ const Hero = () => {
                         <motion.a
                             whileHover={{ scale: 1.05, y: -4 }}
                             whileTap={{ scale: 0.95 }}
-                            href="#join"
-                            className="btn-primary no-underline text-center !py-6 !px-16 text-xl shadow-2xl shadow-gold/20"
+                            href="/#join"
+                            className="btn-primary w-full sm:w-auto no-underline text-center !py-6 !px-10 sm:!px-16 text-lg sm:text-xl shadow-2xl shadow-brand/20"
                         >
                             Start Your Journey
                         </motion.a>

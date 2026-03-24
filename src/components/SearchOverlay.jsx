@@ -39,14 +39,14 @@ const SearchOverlay = memo(({ isOpen, onClose, data }) => {
 
                     <div className="w-full max-w-3xl">
                         <div className="relative mb-12">
-                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gold" size={32} />
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-brand" size={32} />
                             <input
                                 autoFocus
                                 type="text"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 placeholder="Search for Sher, Nasr, or Novels..."
-                                className="w-full bg-slate-50 border-none rounded-[32px] py-8 pl-20 pr-10 text-2xl font-playfair focus:ring-4 focus:ring-gold/10 transition-all outline-none"
+                                className="w-full bg-slate-50 border-none rounded-[32px] py-8 pl-20 pr-10 text-2xl font-serif focus:ring-4 focus:ring-brand/10 transition-all outline-none"
                             />
                         </div>
 
@@ -63,19 +63,31 @@ const SearchOverlay = memo(({ isOpen, onClose, data }) => {
                                         }
                                         onClose()
                                     }}
-                                    className="p-8 rounded-3xl bg-white border border-black/5 hover:border-gold/20 hover:shadow-xl hover:shadow-gold/5 transition-all group cursor-pointer"
+                                    className="p-8 rounded-3xl bg-white border border-black/5 hover:border-brand/20 hover:shadow-xl hover:shadow-brand/5 transition-all group cursor-pointer"
                                 >
                                     <div className="flex items-start gap-6">
-                                        <div className="w-12 h-12 rounded-2xl bg-gold/5 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-all">
+                                        <div className="w-12 h-12 rounded-2xl bg-brand/5 flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all">
                                             {item.isBook ? <Book size={20} /> : (item.type === 'Ghazal' ? <ScrollText size={20} /> : <Feather size={20} />)}
                                         </div>
                                         <div className="flex-1">
-                                            <div className="flex items-center justify-between mb-2">
-                                                <span className="text-[10px] font-bold tracking-[3px] uppercase text-gold">{item.category}</span>
+                                            <div className="flex items-center justify-between mb-4">
+                                                <span className="text-[10px] font-bold tracking-[3px] uppercase text-brand">{item.category}</span>
                                                 <span className="text-xs text-slate-400">{item.author}</span>
                                             </div>
-                                            <h4 className="text-xl font-bold text-slate-800 mb-2">{item.title || item.lines?.[0]}</h4>
-                                            {item.desc && <p className="text-sm text-slate-500 line-clamp-2">{item.desc}</p>}
+                                            
+                                            {item.title && <h4 className="text-xl font-bold text-slate-800 mb-4">{item.title}</h4>}
+                                            
+                                            {item.lines && (
+                                                <div className="space-y-3 mb-4">
+                                                    {item.lines.map((line, lIdx) => (
+                                                        <p key={lIdx} className="text-2xl text-slate-800 font-urdu leading-relaxed">
+                                                            {line}
+                                                        </p>
+                                                    ))}
+                                                </div>
+                                            )}
+                                            
+                                            {item.desc && <p className="text-sm text-slate-500 leading-relaxed italic border-l-2 border-brand/20 pl-4">{item.desc}</p>}
                                         </div>
                                     </div>
                                 </motion.div>
@@ -84,7 +96,7 @@ const SearchOverlay = memo(({ isOpen, onClose, data }) => {
                             {query && results.length === 0 && (
                                 <div className="text-center py-20">
                                     <p className="text-slate-400 text-lg">No results found for "{query}"</p>
-                                    <p className="text-gold text-sm mt-2">Try searching for Ghalib, Iqbal, or Peer-e-Kamil</p>
+                                    <p className="text-brand text-sm mt-2">Try searching for Ghalib, Iqbal, or Peer-e-Kamil</p>
                                 </div>
                             )}
 

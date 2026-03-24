@@ -168,7 +168,7 @@ const MarqueeRow = ({ reversed = false, subset }) => (
     >
         {[...subset, ...subset].map((q, i) => (
             <div key={i} className="flex items-center gap-4 flex-shrink-0">
-                <span className="text-gold text-2xl select-none">✦</span>
+                <span className="text-brand text-2xl select-none">✦</span>
                 <span className="font-urdu text-xl md:text-2xl text-slate-800 leading-relaxed font-medium">
                     {q.text}
                 </span>
@@ -186,9 +186,9 @@ const PoetryMarquee = () => {
     const row2 = quotes.slice(half)
 
     return (
-        <section className="py-24 bg-gradient-to-r from-amber-50/60 via-white to-amber-50/60 border-y border-gold/10 overflow-hidden relative">
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-amber-50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-amber-50 to-transparent z-10 pointer-events-none" />
+        <section className="py-24 bg-gradient-to-r from-slate-50/60 via-white to-rose-50/60 border-y border-brand/10 overflow-hidden relative">
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-rose-50 to-transparent z-10 pointer-events-none" />
 
             <div className="flex flex-col gap-10">
                 <MarqueeRow subset={row1} />

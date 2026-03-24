@@ -1,7 +1,7 @@
 export const societyData = {
     vision: {
-        title: "Our Vision & Mission",
-        subtitle: "Promoting Urdu Literature",
+        title: "نصب العین اور مقصد",
+        subtitle: "اردو زبان و ادب کا فروغ",
         mainText: "بزمِ ادب کامسیٹس میں اردو زبان و ادب کو زندہ رکھنے کی ایک سنجیدہ کاوش ہے۔ ہمارا مقصد ایک ایسا پلیٹ فارم مہیا کرنا ہے جہاں الفاظ دلوں کو متاثر کریں۔ ہم شعر و نثر کے ذریعے نوجوانوں میں تخلیقی صلاحیت، خود اعتمادی اور ثقافتی تشخص کو بیدار کرنا چاہتے ہیں۔ ہمارا ماحول نوجوانوں کی ادبی ذوق کی تسکین کے لیے باوقار اور پرکشش بنایا گیا ہے۔",
         points: [
             'اردو ادب اور مثبت فکری شعور کا فروغ',
@@ -77,39 +77,92 @@ export const societyData = {
         { title: "Ab-e-Hayat", author: "Umera Ahmed", type: "Modern Novel", link: "https://www.rekhta.org/search/ebooks?q=Ab-e-Hayat%20%E2%80%94%20By%20Umera%20Ahmed", trending: false }
     ],
     stats: [
-        { label: "Active Members", value: "850+", color: "#c5a059" },
-        { label: "Annual Events", value: "12+", color: "#6366f1" },
-        { label: "Literary Awards", value: "25", color: "#f43f5e" },
-        { label: "Published Works", value: "100+", color: "#10b981" }
+        { label: "Active Members", value: "850+", color: "#4F46E5" },
+        { label: "Annual Events", value: "12+", color: "#8B5CF6" },
+        { label: "Literary Awards", value: "25", color: "#F43F5E" },
+        { label: "Published Works", value: "100+", color: "#10B981" }
     ],
-    offerings: [
-        { iconName: 'Feather', title: "Learn Prose (نثر)", desc: "Techniques for short stories, essays, and literary criticism from modern masters.", delay: 0.1 },
-        { iconName: 'PenTool', title: "Poetry (شعر)", desc: "Understanding rhythm, meter (Arooz), and classical Ghazals.", delay: 0.2 },
-        { iconName: 'Mic', title: "Public Speaking", desc: "Mastering voice modulation and stage presence for recitals.", delay: 0.3 },
-        { iconName: 'Users', title: "Mentorship", desc: "Direct access to veteran writers and alumni for creative guidance.", delay: 0.4 },
-        { iconName: 'Trophy', title: "Competitions", desc: "State-level literary challenges, grand mushairas, and awards.", delay: 0.5 },
-        { iconName: 'Layout', title: "Artistic Design", desc: "Visualizing the aesthetic soul of literature through media workshops.", delay: 0.6 }
+    clubs: [
+        { 
+            iconName: 'Feather', 
+            title: "Learn Prose (نثر)", 
+            desc: "Techniques for short stories, essays, and literary criticism from modern masters.", 
+            longDesc: "The Prose Club is dedicated to the art of storytelling and analytical writing. We explore various forms of Urdu prose, from the classical 'Dastan' to the modern 'Afsana' (short story) and critical essays. Members learn to craft compelling narratives, build nuanced characters, and develop a unique literary voice under the guidance of seasoned writers.",
+            focusPoints: ["Afsana Nigaari (Short Story Writing)", "Inshaiya (Essay Writing)", "Literary Criticism", "Character Development", "Dialogue Crafting"],
+            image: "/images/clubs/prose.png",
+            delay: 0.1 
+        },
+        { 
+            iconName: 'PenTool', 
+            title: "Poetry (شعر)", 
+            desc: "Understanding rhythm, meter (Arooz), and classical Ghazals.", 
+            longDesc: "The Poetry Club is the soul of Bazm-e-Adab. We delve deep into the technicalities of Urdu verse, focusing on 'Behr' (meter), 'Radeef', and 'Kaafiya'. From the philosophical depths of Ghalib and Iqbal to the romantic nuances of Faiz and Parveen Shakir, we study the masters and encourage members to compose their own Ghazals and Nazms.",
+            focusPoints: ["Bahr & Ilm-e-Arooz (Meter)", "Ghazal Composition", "Nazm & Free Verse", "Mushaira Etiquette", "Classical Poetry Analysis"],
+            image: "/images/clubs/poetry.png",
+            delay: 0.2 
+        },
+        { 
+            iconName: 'Mic', 
+            title: "Public Speaking", 
+            desc: "Mastering voice modulation and stage presence for recitals.", 
+            longDesc: "The Public Speaking Club focuses on the oral tradition of Urdu literature. We train members in 'Nizamat' (hosting), 'Teht-ul-Lafz' (recitation), and 'Khutbat' (oratory). Our goal is to create confident speakers who can command a stage and move an audience with the power of their voice and the beauty of the Urdu language.",
+            focusPoints: ["Nizamat (Event Hosting)", "Poetry Recitation", "Voice Modulation", "Stage Confidence", "Speech Structure"],
+            image: "/images/clubs/speaking.png",
+            delay: 0.3 
+        },
+        { 
+            iconName: 'Users', 
+            title: "Mentorship", 
+            desc: "Direct access to veteran writers and alumni for creative guidance.", 
+            longDesc: "Our Mentorship Program bridges the gap between aspiring talent and established literary figures. We connect students with alumni and professional writers who provide one-on-one feedback on their work, share industry insights, and help navigate the path to becoming a published author.",
+            focusPoints: ["One-on-One Feedback", "Publishing Guidance", "Portfolio Review", "Networking with Authors", "Career in Literature"],
+            image: "/images/clubs/mentorship.png",
+            delay: 0.4 
+        },
+        { 
+            iconName: 'Trophy', 
+            title: "Competitions", 
+            desc: "State-level literary challenges, grand mushairas, and awards.", 
+            longDesc: "The Competitions Club organizes and prepares members for high-stakes literary events. From internal 'Bait Bazi' to national-level declamation and creative writing contests, we provide a platform for members to showcase their talents, win accolades, and represent COMSATS at the highest level.",
+            focusPoints: ["Bait Bazi Training", "Declamation Contests", "Creative Writing Challenges", "Inter-University Events", "Annual Awards"],
+            image: "/images/clubs/competitions.png",
+            delay: 0.5 
+        },
+        { 
+            iconName: 'Layout', 
+            title: "Artistic Design", 
+            desc: "Visualizing the aesthetic soul of literature through media workshops.", 
+            longDesc: "The Artistic Design Club is where literature meets visual art. We focus on the presentation and branding of literary content. Members learn digital illustration, typography, and calligraphy to create posters, book covers, and social media content that reflects the true aesthetic and cultural value of Urdu literature.",
+            focusPoints: ["Urdu Calligraphy", "Digital Poster Design", "Book Cover Illustration", "Social Media Branding", "Cinematography & Video Editing"],
+            image: "/images/clubs/design.png",
+            delay: 0.6 
+        }
     ],
     events: [
-        { title: 'Orientation 2026', sub: 'NEW MEMBERS', desc: 'بزمِ ادب میں خوش آمدید — A grand welcome session for new members to explore the world of Urdu literature, meet the core team, and discover everything Bazm-e-Adab has to offer.', date: 'APRIL 2026', loc: 'Seminar Hall, COMSATS Wah' },
+        { title: 'Seminar: AI & Society', sub: 'IMPACT OF AI ON SOCIAL LIFE', desc: 'Join us for an intellectual dialogue on how Artificial Intelligence is reshaping our cultural and social fabric. A deep dive into the intersection of technology and humanity.', date: 'MAY 2026', loc: 'Main Auditorium, COMSATS Wah' },
+        { title: 'سالانہ محفلِ مشاعرہ', sub: 'ANNUAL MUSHAIRA', desc: 'A grand evening of soul-stirring poetry featuring renowned poets from across the region. Experience the magic of classical and contemporary Urdu verse.', date: 'JUNE 2026', loc: 'Open Air Theater, COMSATS Wah' },
+        { title: 'Novel Presentation & Awards', sub: 'AWARD GALA', desc: 'A prestigious ceremony celebrating the launch of new literary works followed by an award gala honoring outstanding contributors to Urdu literature.', date: 'JULY 2026', loc: 'Pearl Continental, Rawalpindi' },
         { title: 'بیت بازی مقابلہ', sub: 'SPORTS WEEK SPECIAL', desc: 'A thrilling Bait Bazi competition held as part of COMSATS Sports Week — where verses fly faster than the ball! Teams compete in rapid-fire Urdu poetry recall.', date: 'SPORTS WEEK / 2026', loc: 'Main Campus, COMSATS Wah' },
     ],
     team: [
-        { name: "Tayyab Jamal", role: "President", image: "./images/Tayyab Jamal.jpeg", color: "#c5a059", delay: 0.1 },
-        { name: "Hashir", role: "Vice President", image: "./images/hashir.jpeg", color: "#6366f1", delay: 0.2 },
-        { name: "Malik Majid", role: "General Secretary", image: "./images/Malik Majid.jpeg", color: "#f43f5e", delay: 0.3 },
-        { name: "Huzaifa Hassan", role: "Event Co-Lead", image: "./images/Huzaifa Hassan.jpeg", color: "#10b981", delay: 0.4 },
-        { name: "Salman Farooq", role: "Marketing Head", image: "./images/Salman Farooq .jpeg", color: "#8b5cf6", delay: 0.5 },
-        { name: "Zain", role: "Publication Head", image: "./images/Zain.jpeg", color: "#f59e0b", delay: 0.6 },
-        { name: "Salman Zafar", role: "Finance Secretary", image: "./images/Salman Zafar.jpeg", color: "#c5a059", delay: 0.7 },
-        { name: "Shazaib", role: "HR Head", image: "./images/Shazaib.jpeg", color: "#6366f1", delay: 0.8 },
-        { name: "Irtaza", role: "Coordinator", image: "./images/Irtaza.jpeg", color: "#f43f5e", delay: 0.9 },
-        { name: "Abdullah", role: "Advisor", image: "./images/Abdullah.jpeg", color: "#10b981", delay: 1.0 },
-        { name: "Umair", role: "Advisor", image: "./images/Umair.jpeg", color: "#8b5cf6", delay: 1.1 },
-        { name: "Mohsin Mumtaz", role: "Media Head", image: "./images/Mohsin Mumtaz.jpeg", color: "#f59e0b", delay: 1.2 },
-        { name: "Shahid Ali", role: "Graphic Lead", image: "./images/Shahid Ali.jpeg", color: "#c5a059", delay: 1.3 },
-        { name: "Talha Awan", role: "Event Lead", image: "./images/Talha Awan.jpeg", color: "#6366f1", delay: 1.4 },
-        { name: "Dr Shabir", role: "Faculty Head", image: "./images/Dr Shabir.jpeg", color: "#f43f5e", delay: 1.5 }
+        { name: "Dr. Shabir Ahmad", role: "Faculty Head", section: "core", image: "Dr Shabir.jpeg", color: "#1E293B", delay: 0.1 },
+        { name: "Tayyab Jamal", role: "President", section: "core", image: "Tayyab Jamal.jpeg", color: "#1E293B", delay: 0.2 },
+        { name: "Hashir Qureshi", role: "Vice President", section: "core", image: "hashir.jpeg", color: "#BE123C", delay: 0.3 },
+        { name: "M. Majid Ali", role: "General Secretary", section: "core", image: "Malik Majid.jpeg", color: "#047857", delay: 0.4 },
+        
+        { name: "Irtaza Maaz", role: "Coordinator", section: "lead", image: "Irtaza.jpeg", color: "#6D28D9", delay: 0.1 },
+        { name: "Talha Awan", role: "Director Events", section: "lead", image: "Talha Awan.jpeg", color: "#6D28D9", delay: 0.2 },
+        { name: "Suleman Zafar", section: "lead", role: "Finance Secretary", image: "Salman Zafar.jpeg", color: "#1E293B", delay: 0.3 },
+        { name: "Aaiza Mushtaq", role: "Operation Manager", section: "lead", image: "female_dummy.jpg", isFemale: true, color: "#BE123C", delay: 0.4 },
+        { name: "Salman Farooq", role: "Marketing Head", section: "lead", image: "Salman Farooq .jpeg", color: "#1E293B", delay: 0.5 },
+        
+        { name: "Abdullah", role: "Advisor", section: "lead", image: "Abdullah.jpeg", color: "#B45309", delay: 0.1 },
+        { name: "Umair Malik", role: "Advisor", section: "lead", image: "Umair.jpeg", color: "#B45309", delay: 0.2 },
+        { name: "Mohsin Mumtaz", role: "Media Head", section: "lead", image: "Mohsin Mumtaz.jpeg", color: "#BE123C", delay: 0.8 },
+        { name: "Zain", role: "Publication Head", section: "lead", image: "Zain.jpeg", color: "#047857", delay: 0.9 },
+        { name: "Shahzaib Shoaib", role: "Membership Head", section: "lead", image: "Shazaib.jpeg", color: "#B45309", delay: 1.0 },
+        { name: "Anum Saeed", role: "Decor Head", section: "lead", image: "female_dummy.jpg", isFemale: true, color: "#BE123C", delay: 1.1 },
+        { name: "Shahid Ali", role: "Graphics Lead", section: "lead", image: "Shahid Ali.jpeg", color: "#6D28D9", delay: 1.2 }
     ],
     socialLinks: {
         instagram: "https://www.instagram.com/bazameadab_wah?igsh=dG9lbTh3eWliYzlm",

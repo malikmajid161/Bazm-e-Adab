@@ -5,7 +5,7 @@ const Events = ({ data }) => (
     <section id="events" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">The Literary Calendar</h2>
+                <h2 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 mb-6">The Literary Calendar</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
@@ -16,11 +16,11 @@ const Events = ({ data }) => (
                         whileInView={{ opacity: 1, y: 0 }}
                         whileHover={{ y: -10 }}
                         viewport={{ once: true }}
-                        className="glass-card !text-left flex flex-col justify-between transition-shadow duration-500 hover:shadow-2xl hover:shadow-gold/5 h-full"
+                        className="glass-card !text-left flex flex-col justify-between transition-shadow duration-500 hover:shadow-2xl hover:shadow-brand/10 h-full"
                     >
                         <div className="flex-grow">
-                            <span className="text-gold font-bold text-xs tracking-[3px] mb-4 block uppercase">{ev.sub}</span>
-                            <h3 className="text-3xl font-playfair font-bold text-slate-800 mb-6">{ev.title}</h3>
+                            <span className="text-brand font-bold text-xs tracking-[3px] mb-4 block uppercase">{ev.sub}</span>
+                            <h3 className="text-3xl font-serif font-bold text-slate-800 mb-6">{ev.title}</h3>
                             <p className="text-slate-500 mb-8 leading-relaxed">{ev.desc}</p>
                             <div className="space-y-2 text-sm text-slate-400 mb-10 pt-6 border-t border-black/5">
                                 <div className="flex gap-2">📅 <b>{ev.date}</b></div>

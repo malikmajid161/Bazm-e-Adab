@@ -1,73 +1,39 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { Lock } from 'lucide-react'
 
-const JoinUs = ({ onSubmit, isSubmitting }) => (
+const JoinUs = () => (
     <section id="join" className="py-20 px-6 bg-white overflow-hidden">
         <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto bg-[#fdfbf7] rounded-[60px] border border-black/5 p-8 md:p-16 shadow-2xl shadow-black/5 relative overflow-hidden"
+            className="max-w-6xl mx-auto bg-slate-900 rounded-[40px] p-10 md:p-20 shadow-xl relative overflow-hidden text-center"
         >
-            <div className="urdu absolute -bottom-10 -left-10 text-[12rem] opacity-[0.02] pointer-events-none select-none">بزم</div>
-            <div className="text-center mb-12 relative z-10">
-                <h2 className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6">Society Membership</h2>
-                <p className="text-lg text-slate-500">Step into a world where your creativity is celebrated.</p>
-            </div>
-
-            <form onSubmit={onSubmit} className="space-y-8 relative z-10">
-                <div className="grid md:grid-cols-2 gap-8">
-                    <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="space-y-3">
-                        <label className="text-sm font-bold text-slate-700 ml-2">Full Name</label>
-                        <input name="full_name" type="text" required placeholder="John Doe" className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all" />
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="space-y-3">
-                        <label className="text-sm font-bold text-slate-700 ml-2">COMSATS Email</label>
-                        <input name="email" type="email" required placeholder="name@student.comsats.edu.pk" className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all" />
-                    </motion.div>
+            <div className="urdu absolute -bottom-10 -left-10 text-[12rem] opacity-[0.03] pointer-events-none select-none text-white">بزم</div>
+            
+            <div className="relative z-10 max-w-2xl mx-auto">
+                <div className="w-16 h-16 bg-white/10 text-white rounded-2xl flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
+                    <Lock size={32} />
                 </div>
-                <div className="grid md:grid-cols-2 gap-8">
-                    <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="space-y-3">
-                        <label className="text-sm font-bold text-slate-700 ml-2">Phone Number</label>
-                        <input name="phone" type="tel" required placeholder="+92 300 0000000" className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all" />
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="space-y-3">
-                        <label className="text-sm font-bold text-slate-700 ml-2">Department</label>
-                        <input name="department" type="text" required placeholder="e.g. Computer Science" className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all" />
-                    </motion.div>
-                </div>
-
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="space-y-3">
-                    <label className="text-sm font-bold text-slate-700 ml-2">Preferred Role / Interest</label>
-                    <select name="role_interest" required className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all appearance-none cursor-pointer">
-                        <option value="">Select a Path</option>
-                        <option value="Writer">Creative Writer (Prose)</option>
-                        <option value="Poet">Poet (Shayer)</option>
-                        <option value="Management">Management & Events</option>
-                        <option value="Media">Media & Graphics</option>
-                        <option value="PublicSpeaking">Public Speaking / Host</option>
-                    </select>
-                </motion.div>
-
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="space-y-3">
-                    <label className="text-sm font-bold text-slate-700 ml-2">Skills & Portfolio (Short description)</label>
-                    <input name="skills" type="text" placeholder="Writing, Photoshop, Stage presence..." className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all" />
-                </motion.div>
-
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="space-y-3">
-                    <label className="text-sm font-bold text-slate-700 ml-2">Why join us?</label>
-                    <textarea name="message" rows="4" placeholder="Share your literary passion..." className="w-full px-6 py-4 rounded-2xl bg-white border border-black/5 focus:outline-none focus:ring-4 focus:ring-gold/10 focus:border-gold transition-all resize-none"></textarea>
-                </motion.div>
-
-                <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`btn-primary w-full !py-5 shadow-2xl border-none ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                
+                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-serif">Membership Recruitment</h2>
+                <p className="text-xl text-white/80 mb-10 leading-relaxed">
+                    Our community is currently at full capacity for the semester. 
+                    Applications for new members will reopen in the next academic cycle.
+                </p>
+                
+                <Link 
+                    to="/apply" 
+                    className="inline-block px-10 py-5 rounded-2xl bg-white text-slate-900 font-bold hover:bg-slate-100 transition-all duration-300 uppercase tracking-widest text-sm"
                 >
-                    {isSubmitting ? 'Processing Application...' : 'Submit Membership Application'}
-                </motion.button>
-            </form>
+                    Check Application Status
+                </Link>
+            </div>
+            
+            {/* Decorative circles */}
+            <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-brand/20 rounded-full blur-3xl" />
+            <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-emerald-700/20 rounded-full blur-3xl" />
         </motion.div>
     </section>
 )

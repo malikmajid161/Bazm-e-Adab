@@ -23,7 +23,7 @@ const LiteratureShowcase = memo(({ items }) => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-playfair font-bold text-slate-800 mb-6"
+                        className="text-4xl md:text-6xl font-serif font-bold text-slate-800 mb-6"
                     >
                         Literature Showcase
                     </motion.h2>
@@ -66,7 +66,7 @@ const LiteratureShowcase = memo(({ items }) => {
 
                             <div className="pt-8 border-t border-black/5 flex items-end justify-between">
                                 <div>
-                                    <h4 className="font-playfair font-bold text-2xl text-slate-700">— {items[currentIndex].author}</h4>
+                                    <h4 className="font-serif font-bold text-2xl text-slate-700">— {items[currentIndex].author}</h4>
                                     <p className="text-slate-400 mt-2 font-light italic">{items[currentIndex].desc}</p>
                                 </div>
                                 <div className="flex gap-4">
