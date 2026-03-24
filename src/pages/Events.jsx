@@ -28,23 +28,6 @@ const Events = () => {
 
             <EventsSection data={societyData.events} />
 
-            <section className="py-28 px-6 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                         <h2 className="text-3xl font-bold text-slate-800 mb-4">Past Highlights</h2>
-                         <p className="text-slate-500">A look back at our recent successful gatherings.</p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Placeholder for past events gallery */}
-                        {[1, 2, 3].map(i => (
-                            <div key={i} className="aspect-video bg-slate-100 rounded-[24px] border border-slate-200 overflow-hidden flex items-center justify-center text-slate-400 font-medium">
-                                Memories from Event #{i}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
         </div>
     )
 }
