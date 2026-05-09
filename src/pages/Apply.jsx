@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
-import { Info, Calendar, Clock, Send, CheckCircle2, User, Mail, GraduationCap, Laptop } from 'lucide-react'
+import { Info, Calendar, Clock, Send, CheckCircle2, User, Mail, GraduationCap, Laptop, Phone, MessageSquare } from 'lucide-react'
+import { supabase } from '../lib/supabase'
 
 const Apply = () => {
     const location = useLocation()
@@ -11,11 +12,14 @@ const Apply = () => {
     const [formState, setFormState] = useState({
         name: '',
         email: '',
+        phone: '',
         dept: '',
-        interest: initialClub || 'General Membership'
+        interest: initialClub || 'General Membership',
+        message: ''
     })
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -24,10 +28,31 @@ const Apply = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        setIsSubmitting(false)
-        setIsSubmitted(true)
+        setError(null)
+
+        try {
+            const { error } = await supabase
+                .from('registrations')
+                .insert([
+                    {
+                        full_name: formState.name,
+                        email: formState.email,
+                        phone: formState.phone,
+                        department: formState.dept,
+                        role_interest: formState.interest,
+                        message: formState.message
+                    }
+                ])
+
+            if (error) throw error
+
+            setIsSubmitted(true)
+        } catch (err) {
+            console.error('Error submitting registration:', err)
+            setError(err.message || 'Something went wrong. Please try again.')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -50,7 +75,7 @@ const Apply = () => {
                             <div>
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-widest mb-8">
                                     <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-                                    Recruitment Status: Closed
+                                    Recruitment Status: Open (Waiting List)
                                 </div>
                                 
                                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 mb-6 md:mb-8 font-serif leading-[1.1]">
@@ -91,6 +116,12 @@ const Apply = () => {
                                 </div>
                                 
                                 <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                                    {error && (
+                                        <div className="bg-red-50 text-red-600 p-4 rounded-2xl text-sm font-medium border border-red-100">
+                                            {error}
+                                        </div>
+                                    )}
+
                                     <div className="space-y-2">
                                         <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
                                         <div className="relative">
@@ -106,18 +137,34 @@ const Apply = () => {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">University Email</label>
-                                        <div className="relative">
-                                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
-                                            <input 
-                                                required
-                                                type="email" 
-                                                placeholder="sp23-bcs-xxx@cuilahore.edu.pk"
-                                                className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-4 focus:ring-brand/5 outline-none transition-all font-medium"
-                                                value={formState.email}
-                                                onChange={e => setFormState({...formState, email: e.target.value})}
-                                            />
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">University Email</label>
+                                            <div className="relative">
+                                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
+                                                <input 
+                                                    required
+                                                    type="email" 
+                                                    placeholder="sp23-bcs-xxx@cuilahore.edu.pk"
+                                                    className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-4 focus:ring-brand/5 outline-none transition-all font-medium"
+                                                    value={formState.email}
+                                                    onChange={e => setFormState({...formState, email: e.target.value})}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
+                                            <div className="relative">
+                                                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
+                                                <input 
+                                                    required
+                                                    type="tel" 
+                                                    placeholder="03xx-xxxxxxx"
+                                                    className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-4 focus:ring-brand/5 outline-none transition-all font-medium"
+                                                    value={formState.phone}
+                                                    onChange={e => setFormState({...formState, phone: e.target.value})}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
 
@@ -157,6 +204,20 @@ const Apply = () => {
                                         </div>
                                     </div>
 
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Message / Skills (Optional)</label>
+                                        <div className="relative">
+                                            <MessageSquare className="absolute left-4 top-4 text-slate-300" size={18} />
+                                            <textarea 
+                                                placeholder="Tell us about your skills or why you want to join..."
+                                                rows="3"
+                                                className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-4 focus:ring-brand/5 outline-none transition-all font-medium resize-none"
+                                                value={formState.message}
+                                                onChange={e => setFormState({...formState, message: e.target.value})}
+                                            ></textarea>
+                                        </div>
+                                    </div>
+
                                     <button 
                                         type="submit"
                                         disabled={isSubmitting}
@@ -183,7 +244,7 @@ const Apply = () => {
                             </div>
                             <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6 tracking-tight">Interest Registered!</h2>
                             <p className="text-xl text-slate-500 mb-12 leading-relaxed px-4">
-                                Thank you, <span className="text-slate-900 font-bold">{formState.name.split(' ')[0]}</span>. Your interest in <span className="text-brand font-bold">{formState.interest}</span> has been logged. 
+                                Thank you, <span className="text-slate-900 font-bold">{formState.name.split(' ')[0]}</span>. Your interest in <span className="text-brand font-bold">{formState.interest}</span> has been successfully saved to our database. 
                                 We'll keep you updated via your university email.
                             </p>
                             <Link to="/" className="btn-primary !rounded-full !px-12">
@@ -198,3 +259,4 @@ const Apply = () => {
 }
 
 export default Apply
+
