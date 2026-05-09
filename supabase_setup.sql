@@ -5,7 +5,7 @@
 CREATE TABLE IF NOT EXISTS public.registrations (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     full_name TEXT NOT NULL,
-    email TEXT NOT NULL,
+    reg_no TEXT NOT NULL,
     phone TEXT NOT NULL,
     department TEXT NOT NULL,
     role_interest TEXT NOT NULL,

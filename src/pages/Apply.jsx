@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
-import { Info, Calendar, Clock, Send, CheckCircle2, User, Mail, GraduationCap, Laptop, Phone, MessageSquare } from 'lucide-react'
+import { Info, Calendar, Clock, Send, CheckCircle2, User, Mail, GraduationCap, Laptop, Phone, MessageSquare, Hash } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 
 const Apply = () => {
@@ -11,7 +11,7 @@ const Apply = () => {
 
     const [formState, setFormState] = useState({
         name: '',
-        email: '',
+        regNo: '',
         phone: '',
         dept: '',
         interest: initialClub || 'General Membership',
@@ -36,7 +36,7 @@ const Apply = () => {
                 .insert([
                     {
                         full_name: formState.name,
-                        email: formState.email,
+                        reg_no: formState.regNo,
                         phone: formState.phone,
                         department: formState.dept,
                         role_interest: formState.interest,
@@ -139,16 +139,16 @@ const Apply = () => {
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">University Email</label>
+                                            <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-1">Registration Number</label>
                                             <div className="relative">
-                                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
+                                                <Hash className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                                                 <input 
                                                     required
-                                                    type="email" 
-                                                    placeholder="sp23-bcs-xxx@cuilahore.edu.pk"
+                                                    type="text" 
+                                                    placeholder="SP23-BCS-XXX"
                                                     className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-4 focus:ring-brand/5 outline-none transition-all font-medium"
-                                                    value={formState.email}
-                                                    onChange={e => setFormState({...formState, email: e.target.value})}
+                                                    value={formState.regNo}
+                                                    onChange={e => setFormState({...formState, regNo: e.target.value.toUpperCase()})}
                                                 />
                                             </div>
                                         </div>
@@ -245,7 +245,7 @@ const Apply = () => {
                             <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6 tracking-tight">Interest Registered!</h2>
                             <p className="text-xl text-slate-500 mb-12 leading-relaxed px-4">
                                 Thank you, <span className="text-slate-900 font-bold">{formState.name.split(' ')[0]}</span>. Your interest in <span className="text-brand font-bold">{formState.interest}</span> has been successfully saved to our database. 
-                                We'll keep you updated via your university email.
+                                We'll keep you updated regarding further steps.
                             </p>
                             <Link to="/" className="btn-primary !rounded-full !px-12">
                                 Back to Home
